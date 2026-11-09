@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Checkout · BLUETTI Elite 300 Portable Power Station</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/logo-icon.svg">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<header class="co-topbar">
+  <div class="container co-topbar__inner">
+    <a href="index.html" aria-label="BLUETTI"><img src="assets/img/logo-checkout.png" alt="BLUETTI"></a>
+    <span style="position:absolute;right:24px;font-size:12.5px;color:var(--muted)">🔒 Secure checkout</span>
+  </div>
+</header>
+
+<div class="container">
+  <div class="co-steps">
+    <a href="index.html">Cart</a>
+    <span class="sep">›</span>
+    <b>Information</b>
+    <span class="sep">›</span>
+    <span>Payment</span>
+  </div>
+</div>
+
+<div class="co-layout">
+  <!-- Left: form -->
+  <section class="co-main">
+    <div class="co-main__inner">
+
+      <div class="co-alert" id="co-alert">Please complete the highlighted fields to continue.</div>
+
+      <form id="co-form" novalidate>
+        <div class="co-block">
+          <div class="co-block__head">
+            <h2 class="co-block__title">Contact</h2>
+          </div>
+          <div class="co-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          </div>
+          <div class="co-field">
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+49 000 000000" autocomplete="tel" required>
+          </div>
+        </div>
+
+        <div class="co-block">
+          <div class="co-block__head">
+            <h2 class="co-block__title">Delivery</h2>
+          </div>
+          <div class="co-field">
+            <label for="country">Country / Region</label>
+            <select id="country" name="country" required>
+              <option value="DE" selected>Germany</option>
+              <option value="FR">France</option>
+              <option value="IT">Italy</option>
+              <option value="ES">Spain</option>
+              <option value="NL">Netherlands</option>
+              <option value="BE">Belgium</option>
+              <option value="AT">Austria</option>
+              <option value="PT">Portugal</option>
+              <option value="IE">Ireland</option>
+              <option value="PL">Poland</option>
+              <option value="SE">Sweden</option>
+              <option value="DK">Denmark</option>
+            </select>
+          </div>
+          <div class="co-row">
+            <div class="co-field">
+              <label for="first">First name</label>
+              <input id="first" name="first" autocomplete="given-name" required>
+            </div>
+            <div class="co-field">
+              <label for="last">Last name</label>
+              <input id="last" name="last" autocomplete="family-name" required>
+            </div>
+          </div>
+          <div class="co-field">
+            <label for="address">Address</label>
+            <input id="address" name="address" placeholder="Street and house number" autocomplete="address-line1" required>
+          </div>
+          <div class="co-field">
+            <label for="address2">Apartment, suite, etc. <span style="color:var(--muted-2)">(optional)</span></label>
+            <input id="address2" name="address2" autocomplete="address-line2">
+          </div>
+          <div class="co-row">
+            <div class="co-field">
+              <label for="postal">Postal code</label>
+              <input id="postal" name="postal" autocomplete="postal-code" required>
+            </div>
+            <div class="co-field">
+              <label for="city">City</label>
+              <input id="city" name="city" autocomplete="address-level2" required>
+            </div>
+          </div>
+          <label class="co-checkbox" style="margin-top:6px">
+            <input type="checkbox" id="email-offers" checked>
+            Send me news and offers by email
+          </label>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Right: order summary -->
+  <aside class="co-side">
+    <div class="co-side__inner">
+      <div class="co-summary">
+        <div class="co-summary__title">Order Summary</div>
+
+        <div class="co-item">
+          <div class="co-item__img">
+            <span class="co-item__qty">1</span>
+            <img id="co-img" src="assets/img/g1.webp" alt="">
+          </div>
+          <div class="co-item__body">
+            <div class="co-item__name" id="co-name">BLUETTI Elite 300 Portable Power Station</div>
+            <div class="co-item__var" id="co-var">2.400W | 3.014,4Wh</div>
+          </div>
+          <div class="co-item__price" id="co-price">109,90 €</div>
+        </div>
+
+        <div style="margin-top:16px">
+          <div class="co-line"><span>Subtotal (regular price)</span><span id="co-sub-was">1.649,00 €</span></div>
+          <div class="co-line"><span>Black Friday promotion</span><span style="color:var(--green);font-weight:600">−<span id="co-disc">1.539,10 €</span></span></div>
+          <div class="co-line"><span>Shipping</span><span class="free">FREE</span></div>
+          <div class="co-line total"><span>Total</span><span id="co-total">109,90 €</span></div>
+        </div>
+
+        <div class="co-promo">
+          <input class="co-field" style="margin:0" placeholder="Discount code" aria-label="Discount code" id="co-promo">
+          <button class="btn btn-ghost" type="button" style="width:auto;padding:12px 18px;font-size:14px" id="co-apply">Apply</button>
+        </div>
+        <div class="co-save">🎉 You save <span id="co-save">1.539,10 €</span> today</div>
+
+        <button class="btn btn-primary co-continue" id="co-continue">Continue to Payment</button>
+        <div class="co-secure">🔒 Encrypted &amp; secure payment</div>
+        <div class="co-note" style="text-align:center">Price includes 19% DE VAT. Tax adjusts by delivery address.</div>
+
+        <img src="assets/img/cert.webp" alt="" style="margin-top:18px;border-radius:10px">
+      </div>
+      <div class="co-note" style="text-align:center;margin-top:14px">Need help? Email <b>sale-eu@bluettipower.com</b> — we reply within 24 hours.</div>
+    </div>
+  </aside>
+</div>
+
+<footer class="co-foot">
+  Need help? <a href="index.html">Return to product</a> · © 2026 BLUETTI
+</footer>
+
+<script src="assets/js/app.js"></script>
+<script src="assets/js/checkout.js"></script>
+</body>
+</html>
