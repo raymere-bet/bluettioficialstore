@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head><script>(function(){if(location.protocol!=='file:')return;function s(){if(document.getElementById('__site_host_notice'))return;var d=document.createElement('div');d.id='__site_host_notice';d.style.cssText='position:fixed;inset:0;z-index:2147483647;background:#0A0A0A;color:#fff;display:flex;align-items:center;justify-content:center;padding:24px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif';d.innerHTML='<div style="max-width:440px;text-align:center;line-height:1.55"><div style="font-size:20px;font-weight:600;margin-bottom:12px">Quase l&aacute;: seu site precisa estar publicado</div><div style="opacity:.85;font-size:15px">Abrir o arquivo direto no computador n&atilde;o funciona, &eacute; uma prote&ccedil;&atilde;o do navegador. Para ver seu site, publique esta pasta em qualquer hospedagem de sites.</div><div style="opacity:.7;font-size:13px;margin-top:14px">Jeito r&aacute;pido e gr&aacute;tis: acesse <b>app.netlify.com/drop</b> e arraste a pasta para a p&aacute;gina.</div></div>';(document.body||document.documentElement).appendChild(d);}if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',s);}else{s();}setTimeout(s,400);})();</script>
+    <meta charset="utf-8">
+    <title>Web Pixels Manager Sandbox</title>
+    <script src="https://checkout.bluettipower.eu/cdn/wpm/s43600932w1bbca933p2f8a9c65m024fd2f2m.js"></script>
+
+    <script type="text/javascript">
+  (function(shopify) {shopify.extend('WebPixel::Render', function(api) {
+var analytics=api.analytics,browser=api.browser,init=api.init;
+// Step 1. Initialize the JavaScript pixel SDK (make sure to exclude HTML) 
+
+(function(w,d,t,r,u){var f,n,i;w[u]=w[u]||[],f=function(){var o={ti:"355043788", disableAutoPageView: true, enableAutoSpaTracking: false};o.q=w[u],w[u]=new UET(o),w[u].push("pageLoad")},n=d.createElement(t),n.src=r,n.async=1,n.onload=n.onreadystatechange=function(){var s=this.readyState;s&&s!=="loaded"&&s!=="complete"||(f(),n.onload=n.onreadystatechange=null)},i=d.getElementsByTagName(t)[0],i.parentNode.insertBefore(n,i)})(window,document,"script","//bat.bing.com/bat.js","uetq"); 
+
+window.uetq = window.uetq || []; 
+
+window.uetq.push('consent', 'update', { 
+
+    'ad_storage': 'granted' 
+
+    }); 
+
+  
+
+// Step 2. Subscribe to customer events with analytics.subscribe(), and add tracking 
+
+analytics.subscribe("page_viewed", (event) => { 
+
+  window.uetq = window.uetq || [];  
+
+  window.uetq.push('event', 'page_view', { 'page_location': event.context.window.location.href }); 
+
+}); 
+
+                     
+
+analytics.subscribe("all_standard_events", event => { 
+
+  
+
+  let productIds = ''; 
+
+  let revenueValue = 0; 
+
+  let currency = ''; 
+
+  
+
+  switch (event.name) { 
+
+    case "product_viewed": 
+
+      if (event.data?.productVariant) { 
+
+        productIds = String(event.data.productVariant.product.id); 
+
+        window.uetq = window.uetq || []; 
+
+        window.uetq.push('event', '', { 
+
+          'ecomm_prodid': productIds, 
+
+          'ecomm_pagetype': 'product' 
+
+        }); 
+
+      } 
+
+      break; 
+
+  
+
+    case "cart_viewed": 
+
+      if (event.data?.cart) { 
+
+        if (Array.isArray(event.data?.cart?.lines)) { 
+
+          const cartItemIds = event.data.cart.lines.map(line => String(line.merchandise.product.id)); 
+
+          productIds = cartItemIds.join(',').slice(0, 50); 
+
+        } 
+
+        window.uetq = window.uetq || []; 
+
+        window.uetq.push('event', 'product_page', { 
+
+          'ecomm_prodid': productIds, 
+
+          'ecomm_pagetype': 'cart' 
+
+        }); 
+
+      } 
+
+      break; 
+
+  
+
+    case "product_added_to_cart": 
+
+      if (event.data?.cartLine) { 
+
+        productIds = String(event.data.cartLine.merchandise.product.id); 
+
+        window.uetq = window.uetq || []; 
+
+        window.uetq.push('event', 'add_to_cart', { 
+
+          'ecomm_prodid': productIds, 
+
+          'ecomm_pagetype': 'cart' 
+
+        }); 
+
+      } 
+
+      break; 
+
+  
+
+    case "checkout_completed": 
+
+      if (event.data?.checkout) { 
+
+        revenueValue = event.data.checkout.totalPrice?.amount; 
+
+        currency = event.data.checkout.totalPrice?.currencyCode; 
+
+  
+
+        if (Array.isArray(event.data?.checkout?.lineItems)) { 
+
+          const lineItemIds = event.data.checkout.lineItems.map(item => String(item.variant.product.id)); 
+
+          productIds = lineItemIds.join(',').slice(0, 50); 
+
+        } 
+
+  
+
+        window.uetq = window.uetq || []; 
+
+        window.uetq.push('event', 'purchase', { 
+
+          'ecomm_prodid': productIds, 
+
+          'ecomm_pagetype': 'purchase', 
+
+          'revenue_value': revenueValue, 
+
+          'currency': currency 
+
+        }); 
+
+      } 
+
+      break; 
+
+  } 
+
+}); 
+});})(self.webPixelsManager.createShopifyExtend('148242808', 'custom'));
+
+</script>
+
+  </head>
+  <body></body>
+</html>
